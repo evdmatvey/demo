@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'PT Sans';
+  src: url('./PTSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./Manrope-Regular.ttf') format('truetype');
+  font-weight: 400;
+  style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./Manrope-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
