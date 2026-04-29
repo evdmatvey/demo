@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--color-gray);
+  font-size: 14px;
+}
+
+.root svg path {
+  fill: var(--color-gray);
+}
+
+.root.small svg {
+  width: 14px;
+  height: 14px;
+}
+
+.root.medium svg {
+  width: 21px;
+  height: 21px;
+}
