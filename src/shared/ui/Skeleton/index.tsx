@@ -7,7 +7,7 @@ interface SkeletonProps {
 
 export const Skeleton = ({
   width = '100%',
-  height = '20px',
+  height = '100%',
 }: SkeletonProps) => {
   return <div className={styles.root} style={{ width, height }}></div>;
 };

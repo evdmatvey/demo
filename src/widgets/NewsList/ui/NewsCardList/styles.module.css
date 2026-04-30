@@ -1,0 +1,18 @@
+.root {
+  margin-bottom: 21px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@container news-container (max-width: 480px) {
+  .root {
+    gap: 0;
+    margin-bottom: 14px;
+  }
+}

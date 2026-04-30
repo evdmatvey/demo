@@ -2,7 +2,10 @@
 
 :root {
   --color-black: #181a1f;
+  --color-black-dark: #000;
   --color-black-light: #2b2e33;
+  --color-white: #fff;
+  --color-white-dark: #e9e9e9;
   --color-gray: #85888e;
   --color-gray-light: #e2e2e4;
   --color-blue: #aad7fb;
@@ -20,10 +23,10 @@
 }
 
 body {
-  font-family: var(--font-family);
-  font-size: 16px;
+  font-family: var(--font-family), sans-serif;
+  font-size: 14px;
   font-weight: 400;
   font-style: normal;
-  background: var(--background);
-  color: var(--text);
+  color: var(--color-black);
+  background: var(--color-white-dark);
 }

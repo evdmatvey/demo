@@ -1,4 +1,4 @@
-import { queryOptions } from '@tanstack/react-query';
+import { keepPreviousData, queryOptions } from '@tanstack/react-query';
 import { type NewsType, getNews } from './get-news';
 
 export const newsQueries = {
@@ -8,5 +8,6 @@ export const newsQueries = {
     queryOptions({
       queryKey: [...newsQueries.lists(), page, limit],
       queryFn: () => getNews(page, limit, type),
+      placeholderData: keepPreviousData,
     }),
 };
