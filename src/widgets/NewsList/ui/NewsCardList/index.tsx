@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useMemo } from 'react';
 import {
   NewsCard,
@@ -32,10 +33,12 @@ export const NewsCardList = ({
     [newsPerPage, variant],
   );
 
+  const classes = clsx(styles.root, styles[variant]);
+
   if (isLoading) return <div className={styles.root}>{skeletons}</div>;
 
   return (
-    <div className={styles.root}>
+    <div className={classes}>
       {news.map((news, index) => {
         if (index === 0)
           return (

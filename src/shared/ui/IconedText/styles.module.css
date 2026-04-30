@@ -6,6 +6,10 @@
   font-size: 14px;
 }
 
+.root.root.small {
+  font-size: 12px;
+}
+
 .root svg path {
   fill: var(--color-gray);
 }

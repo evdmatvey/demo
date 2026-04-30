@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.root.medium {
+  gap: 7px;
+}
+
+.root.small {
+  gap: 3px;
+}
