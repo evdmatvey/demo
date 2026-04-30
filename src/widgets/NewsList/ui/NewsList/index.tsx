@@ -22,6 +22,8 @@ export const NewsList = ({
     data,
     isLoading,
     isFetching,
+    isNoData,
+    isError,
     isNextDisabled,
     isPrevDisabled,
     showNextPage,
@@ -34,23 +36,28 @@ export const NewsList = ({
         <h3 className={styles.title}>{title}</h3>
         <MinDatePublication
           isLoading={isLoading}
+          isError={isError}
           minDatePublication={data?.minDatePublication}
         />
       </div>
       <NewsCardList
+        isNoData={isNoData}
         isLoading={isFetching && !data}
+        isError={isError}
         news={data?.news ?? []}
         variant={variant}
         newsPerPage={newsPerPage}
       />
-      <div className={styles.pagination}>
-        <PaginationArrows
-          isNextDisabled={isNextDisabled}
-          isPrevDisables={isPrevDisabled}
-          onClickNext={showNextPage}
-          onClickPrev={showPrevPage}
-        />
-      </div>
+      {!isNoData && (
+        <div className={styles.pagination}>
+          <PaginationArrows
+            isNextDisabled={isNextDisabled}
+            isPrevDisables={isPrevDisabled}
+            onClickNext={showNextPage}
+            onClickPrev={showPrevPage}
+          />
+        </div>
+      )}
     </div>
   );
 };

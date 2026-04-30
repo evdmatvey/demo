@@ -3,10 +3,10 @@ import { type NewsType, getNews } from './get-news';
 
 export const newsQueries = {
   all: () => ['posts'],
-  lists: () => [...newsQueries.all(), 'list'],
+  lists: (type: NewsType) => [...newsQueries.all(), 'list', type],
   list: (page: number, limit: number, type: NewsType) =>
     queryOptions({
-      queryKey: [...newsQueries.lists(), page, limit],
+      queryKey: [...newsQueries.lists(type), page, limit],
       queryFn: () => getNews(page, limit, type),
       placeholderData: keepPreviousData,
     }),

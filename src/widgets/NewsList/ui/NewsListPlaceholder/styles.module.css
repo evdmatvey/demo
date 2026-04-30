@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.image {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 15px;
+}

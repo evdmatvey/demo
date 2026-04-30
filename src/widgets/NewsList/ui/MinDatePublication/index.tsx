@@ -4,13 +4,17 @@ import styles from './styles.module.css';
 
 interface MinDatePublicationProps {
   isLoading: boolean;
+  isError: boolean;
   minDatePublication: Date | undefined;
 }
 
 export const MinDatePublication = ({
   isLoading,
+  isError,
   minDatePublication,
 }: MinDatePublicationProps) => {
+  if (isError) return <p className={styles.root}>Упс...</p>;
+
   if (isLoading || !minDatePublication)
     return <Skeleton width="100px" height="16px" />;
 

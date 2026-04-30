@@ -6,10 +6,13 @@ import {
   type NewsData,
   type NewsVariant,
 } from '@/entities/news';
+import { NewsListPlaceholder } from '../NewsListPlaceholder';
 import styles from './styles.module.css';
 
 interface NewsCardListProps {
   isLoading: boolean;
+  isNoData: boolean;
+  isError: boolean;
   variant: NewsVariant;
   newsPerPage: number;
   news: NewsData[];
@@ -20,6 +23,8 @@ export const NewsCardList = ({
   variant,
   newsPerPage,
   isLoading,
+  isNoData,
+  isError,
 }: NewsCardListProps) => {
   const skeletons = useMemo(
     () =>
@@ -35,7 +40,10 @@ export const NewsCardList = ({
 
   const classes = clsx(styles.root, styles[variant]);
 
-  if (isLoading) return <div className={styles.root}>{skeletons}</div>;
+  if (isLoading) return <div className={classes}>{skeletons}</div>;
+
+  if (isNoData) return <NewsListPlaceholder text="Новых новостей нет" />;
+  if (isError) return <NewsListPlaceholder text="Произошла ошибка" />;
 
   return (
     <div className={classes}>

@@ -6,6 +6,12 @@ export const Home = () => {
     <div className={styles.root}>
       <NewsList title="Бизнес" newsPerPage={3} variant="business" />
       <NewsList title="Новости компании" newsPerPage={3} variant="company" />
+      <NewsList
+        title="Важные новости"
+        newsPerPage={3}
+        variant="company"
+        type="empty"
+      />
     </div>
   );
 };

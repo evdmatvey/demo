@@ -4,9 +4,11 @@ import { type NewsType, newsQueries } from '@/entities/news';
 
 export const useNewsList = (newsPerPage: number, type: NewsType) => {
   const [page, setPage] = useState(1);
-  const { data, isLoading, isFetching, isPlaceholderData } = useQuery(
+  const { data, isLoading, isFetching, isPlaceholderData, isError } = useQuery(
     newsQueries.list(page, newsPerPage, type),
   );
+
+  const isNoData = data?.totalPages === 0 && !isLoading && !isFetching;
 
   const totalPages = data?.totalPages || 1;
   const isNextDisabled = page >= totalPages || isFetching;
@@ -28,6 +30,8 @@ export const useNewsList = (newsPerPage: number, type: NewsType) => {
     data,
     isLoading,
     isFetching,
+    isNoData,
+    isError,
     isPlaceholderData,
     isNextDisabled,
     isPrevDisabled,
