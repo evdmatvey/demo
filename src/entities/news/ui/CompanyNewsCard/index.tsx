@@ -1,3 +1,4 @@
+import { m } from 'motion/react';
 import { formatDate } from '@/shared/lib/format-date';
 import { Tag } from '@/shared/ui/tag';
 import type { NewsData } from '../../model/news';
@@ -12,7 +13,16 @@ interface CompanyNewsCardProps {
 
 export const CompanyNewsCard = ({ news, isPrimary }: CompanyNewsCardProps) => {
   return (
-    <div className={styles.root} data-primary={isPrimary}>
+    <m.div
+      className={styles.root}
+      data-primary={isPrimary}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.2,
+        ease: 'linear',
+      }}
+    >
       <NewsCardCover className={styles.cover} covers={news.cover} />
       <div className={styles.content}>
         <div className={styles.heading}>
@@ -36,6 +46,6 @@ export const CompanyNewsCard = ({ news, isPrimary }: CompanyNewsCardProps) => {
           />
         </div>
       </div>
-    </div>
+    </m.div>
   );
 };

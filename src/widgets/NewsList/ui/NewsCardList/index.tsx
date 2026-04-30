@@ -47,14 +47,14 @@ export const NewsCardList = ({
 
   return (
     <div className={classes}>
-      {news.map((news, index) => {
-        if (index === 0)
-          return (
-            <NewsCard key={news.id} news={news} variant={variant} isPrimary />
-          );
-
-        return <NewsCard key={news.id} news={news} variant={variant} />;
-      })}
+      {news.map((news, index) => (
+        <NewsCard
+          key={news.id}
+          news={news}
+          variant={variant}
+          isPrimary={index === 0}
+        />
+      ))}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { m } from 'motion/react';
 import { formatDate } from '@/shared/lib/format-date';
 import { Hashtag } from '@/shared/ui/Hashtag';
 import { StarIcon } from '@/shared/ui/Icons/StarIcon';
@@ -14,7 +15,16 @@ interface BusinessNewsCard {
 
 export const BusinessNewsCard = ({ news, isPrimary }: BusinessNewsCard) => {
   return (
-    <div className={styles.root} data-primary={isPrimary}>
+    <m.div
+      className={styles.root}
+      data-primary={isPrimary}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.2,
+        ease: 'linear',
+      }}
+    >
       {isPrimary && (
         <>
           <NewsCardCover className={styles.cover} covers={news.cover} />
@@ -40,6 +50,6 @@ export const BusinessNewsCard = ({ news, isPrimary }: BusinessNewsCard) => {
           size="small"
         />
       </div>
-    </div>
+    </m.div>
   );
 };
